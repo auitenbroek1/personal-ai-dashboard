@@ -57,7 +57,7 @@ function SimpleApp() {
     <div className="App" style={{ padding: '20px', fontFamily: 'Arial, sans-serif' }}>
       <h1>🤖 Personal AI Assistant Dashboard</h1>
       
-      <div style={{ marginBottom: '20px', padding: '10px', backgroundColor: '#f0f0f0', borderRadius: '5px' }}>
+      <div style={{ marginBottom: '20px', padding: '15px', backgroundColor: '#2c3e50', color: '#ffffff', borderRadius: '8px', border: '2px solid #34495e' }}>
         <strong>Connection Status:</strong> {connectionStatus}
       </div>
 
@@ -163,16 +163,16 @@ function SimpleApp() {
         </div>
       )}
       
-      <div style={{ marginTop: '40px', padding: '20px', backgroundColor: '#f5f5f5', borderRadius: '8px' }}>
-        <h3>🎯 Demo Features</h3>
-        <ul style={{ textAlign: 'left' }}>
+      <div style={{ marginTop: '40px', padding: '25px', backgroundColor: '#34495e', color: '#ffffff', borderRadius: '12px', border: '2px solid #2c3e50' }}>
+        <h3 style={{ color: '#3498db', marginTop: '0' }}>🎯 Demo Features</h3>
+        <ul style={{ textAlign: 'left', lineHeight: '1.6' }}>
           <li>✅ Real-time system metrics</li>
           <li>✅ Agent status monitoring</li>
           <li>✅ Task queue management</li>
           <li>✅ Backend API integration</li>
           <li>✅ Professional dashboard UI</li>
         </ul>
-        <p><strong>Perfect for client demonstrations!</strong></p>
+        <p style={{ color: '#e74c3c', fontWeight: 'bold', fontSize: '18px', marginBottom: '0' }}>Perfect for client demonstrations!</p>
       </div>
     </div>
   );
