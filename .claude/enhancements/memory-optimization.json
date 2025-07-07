@@ -1,0 +1,135 @@
+{
+  "memoryOptimization": {
+    "version": "1.0.0",
+    "enabled": true,
+    "features": {
+      "indexing": {
+        "enabled": true,
+        "algorithms": ["text", "semantic", "categorical", "temporal"],
+        "rebuildInterval": "1h",
+        "compression": true,
+        "caching": {
+          "enabled": true,
+          "maxSize": "100MB",
+          "ttl": "30m"
+        }
+      },
+      "search": {
+        "enabled": true,
+        "engines": {
+          "fullText": {
+            "enabled": true,
+            "fuzzyMatching": true,
+            "stemming": true,
+            "stopWords": true
+          },
+          "semantic": {
+            "enabled": true,
+            "similarity": "cosine",
+            "threshold": 0.7
+          },
+          "temporal": {
+            "enabled": true,
+            "ranges": ["1h", "1d", "1w", "1m"],
+            "clustering": true
+          },
+          "categorical": {
+            "enabled": true,
+            "hierarchical": true,
+            "autoTagging": true
+          }
+        },
+        "ranking": {
+          "algorithm": "hybrid",
+          "factors": ["relevance", "recency", "usage", "importance"],
+          "weights": [0.4, 0.2, 0.2, 0.2]
+        }
+      },
+      "optimization": {
+        "autoCompaction": {
+          "enabled": true,
+          "threshold": "1000 entries",
+          "schedule": "daily",
+          "preserveImportant": true
+        },
+        "deduplication": {
+          "enabled": true,
+          "similarity": 0.95,
+          "mergeStrategy": "latest"
+        },
+        "archiving": {
+          "enabled": true,
+          "criteria": {
+            "age": "30d",
+            "unused": "7d",
+            "size": "10MB"
+          },
+          "compression": "gzip"
+        }
+      }
+    },
+    "namespaces": {
+      "default": {
+        "maxSize": "500MB",
+        "retention": "90d",
+        "compression": true
+      },
+      "agent-coordination": {
+        "maxSize": "200MB", 
+        "retention": "30d",
+        "priority": "high",
+        "realtime": true
+      },
+      "workflow-state": {
+        "maxSize": "300MB",
+        "retention": "60d",
+        "versioning": true
+      },
+      "knowledge-base": {
+        "maxSize": "1GB",
+        "retention": "365d",
+        "searchOptimized": true,
+        "semanticIndex": true
+      },
+      "cache": {
+        "maxSize": "100MB",
+        "retention": "1d",
+        "volatile": true
+      }
+    },
+    "performance": {
+      "batchOperations": {
+        "enabled": true,
+        "batchSize": 100,
+        "parallelWrites": 4
+      },
+      "connectionPooling": {
+        "enabled": true,
+        "maxConnections": 10,
+        "timeout": "30s"
+      },
+      "queryOptimization": {
+        "enabled": true,
+        "caching": true,
+        "indexHints": true
+      }
+    },
+    "integration": {
+      "claudeFlow": {
+        "autoIndex": true,
+        "searchEndpoint": "/memory/search",
+        "bulkOperations": true
+      },
+      "sparc": {
+        "sharedContext": true,
+        "agentMemory": true,
+        "workflowPersistence": true
+      },
+      "tools": {
+        "memorySearch": true,
+        "semanticQuery": true,
+        "knowledgeGraph": true
+      }
+    }
+  }
+}

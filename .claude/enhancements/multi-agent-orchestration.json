@@ -1,0 +1,358 @@
+{
+  "multiAgentOrchestration": {
+    "version": "1.0.0",
+    "enabled": true,
+    "productivityOptimizations": {
+      "autoSpawning": {
+        "enabled": true,
+        "triggers": [
+          {
+            "pattern": "complex task",
+            "agentTypes": ["orchestrator", "coder", "tester"],
+            "maxAgents": 3,
+            "coordination": "hierarchical"
+          },
+          {
+            "pattern": "research request",
+            "agentTypes": ["researcher", "analyzer"],
+            "maxAgents": 2,
+            "coordination": "parallel"
+          },
+          {
+            "pattern": "development task",
+            "agentTypes": ["architect", "coder", "tester", "reviewer"],
+            "maxAgents": 4,
+            "coordination": "pipeline"
+          }
+        ]
+      },
+      "intelligentRouting": {
+        "enabled": true,
+        "rules": [
+          {
+            "keywords": ["implement", "code", "build"],
+            "primaryAgent": "coder",
+            "supportAgents": ["tester", "reviewer"],
+            "priority": "high"
+          },
+          {
+            "keywords": ["research", "analyze", "investigate"],
+            "primaryAgent": "researcher",
+            "supportAgents": ["analyzer"],
+            "priority": "medium"
+          },
+          {
+            "keywords": ["fix", "debug", "error"],
+            "primaryAgent": "debugger",
+            "supportAgents": ["tester", "analyzer"],
+            "priority": "critical"
+          },
+          {
+            "keywords": ["test", "verify", "validate"],
+            "primaryAgent": "tester",
+            "supportAgents": ["reviewer"],
+            "priority": "high"
+          }
+        ]
+      },
+      "workloadBalancing": {
+        "enabled": true,
+        "strategy": "adaptive",
+        "maxConcurrentAgents": 8,
+        "scalingTriggers": {
+          "queueSize": 5,
+          "averageWaitTime": "30s",
+          "cpuThreshold": 80
+        },
+        "loadDistribution": {
+          "roundRobin": false,
+          "leastConnections": true,
+          "weighted": true,
+          "weights": {
+            "orchestrator": 1.0,
+            "coder": 1.2,
+            "tester": 1.0,
+            "researcher": 0.8,
+            "reviewer": 0.9
+          }
+        }
+      }
+    },
+    "coordination": {
+      "modes": {
+        "hierarchical": {
+          "description": "Orchestrator leads, specialists follow",
+          "structure": {
+            "orchestrator": {
+              "role": "coordinator",
+              "responsibilities": ["task distribution", "progress monitoring", "coordination"],
+              "manages": ["coder", "tester", "researcher", "reviewer"]
+            },
+            "specialists": {
+              "role": "executor",
+              "responsibilities": ["task execution", "status reporting", "deliverable creation"],
+              "reportsTo": "orchestrator"
+            }
+          },
+          "communicationFlow": "hub-and-spoke",
+          "decisionMaking": "centralized"
+        },
+        "parallel": {
+          "description": "All agents work concurrently",
+          "structure": {
+            "coordination": "peer-to-peer",
+            "synchronization": "memory-based",
+            "conflictResolution": "voting"
+          },
+          "communicationFlow": "mesh",
+          "decisionMaking": "distributed"
+        },
+        "pipeline": {
+          "description": "Sequential execution with handoffs",
+          "structure": {
+            "stages": [
+              {
+                "name": "analysis",
+                "agents": ["researcher", "analyzer"],
+                "outputs": ["requirements", "constraints", "options"]
+              },
+              {
+                "name": "design",
+                "agents": ["architect", "designer"],
+                "inputs": ["requirements", "constraints"],
+                "outputs": ["architecture", "specifications"]
+              },
+              {
+                "name": "implementation",
+                "agents": ["coder", "tester"],
+                "inputs": ["architecture", "specifications"],
+                "outputs": ["code", "tests"]
+              },
+              {
+                "name": "validation",
+                "agents": ["reviewer", "tester"],
+                "inputs": ["code", "tests"],
+                "outputs": ["reviewed_code", "test_results"]
+              }
+            ]
+          },
+          "communicationFlow": "sequential",
+          "decisionMaking": "stage-based"
+        }
+      },
+      "protocols": {
+        "memory-shared": {
+          "namespace": "agent-coordination",
+          "sharedKeys": [
+            "task_context",
+            "progress_status",
+            "shared_resources",
+            "coordination_state"
+          ],
+          "syncInterval": "5s",
+          "conflictResolution": "last-write-wins"
+        },
+        "event-driven": {
+          "events": [
+            "agent_spawned",
+            "task_started",
+            "task_completed",
+            "agent_error",
+            "coordination_needed"
+          ],
+          "eventBus": "internal",
+          "routing": "topic-based",
+          "persistence": true
+        },
+        "todo-based": {
+          "sharedTodoList": true,
+          "taskDistribution": "automatic",
+          "prioritization": "weighted",
+          "statusTracking": "real-time"
+        }
+      }
+    },
+    "automation": {
+      "taskDetection": {
+        "enabled": true,
+        "patterns": [
+          {
+            "name": "development_workflow",
+            "triggers": ["implement", "build", "create"],
+            "workflow": "full-stack-development",
+            "autoStart": true
+          },
+          {
+            "name": "research_workflow",
+            "triggers": ["research", "analyze", "investigate"],
+            "workflow": "research-and-analysis",
+            "autoStart": true
+          },
+          {
+            "name": "debugging_workflow",
+            "triggers": ["fix", "debug", "error", "issue"],
+            "workflow": "debugging-workflow",
+            "autoStart": true
+          }
+        ]
+      },
+      "agentSelection": {
+        "strategy": "skill-based",
+        "criteria": [
+          "task_complexity",
+          "required_skills",
+          "agent_availability",
+          "performance_history"
+        ],
+        "fallbackStrategy": "round-robin"
+      },
+      "progressTracking": {
+        "enabled": true,
+        "granularity": "task-level",
+        "reporting": {
+          "frequency": "real-time",
+          "format": "json",
+          "targets": ["memory", "logs", "metrics"]
+        },
+        "milestones": {
+          "autoDetection": true,
+          "notifications": true,
+          "escalation": {
+            "enabled": true,
+            "thresholds": {
+              "stalled": "5m",
+              "overdue": "30m",
+              "failed": "3 errors"
+            }
+          }
+        }
+      }
+    },
+    "performance": {
+      "optimization": {
+        "agentPooling": {
+          "enabled": true,
+          "poolSize": 10,
+          "preWarmAgents": 3,
+          "recycleThreshold": 100
+        },
+        "resourceSharing": {
+          "enabled": true,
+          "sharedResources": ["memory", "tools", "knowledge"],
+          "cachingStrategy": "LRU",
+          "maxCacheSize": "100MB"
+        },
+        "batchProcessing": {
+          "enabled": true,
+          "batchSize": 5,
+          "maxWaitTime": "10s",
+          "batchTypes": [
+            "similar_tasks",
+            "same_agent_type",
+            "related_context"
+          ]
+        }
+      },
+      "monitoring": {
+        "metrics": [
+          "agent_utilization",
+          "task_completion_time",
+          "error_rates",
+          "coordination_overhead",
+          "resource_usage"
+        ],
+        "alerting": {
+          "enabled": true,
+          "thresholds": {
+            "high_error_rate": 0.1,
+            "slow_completion": "2x average",
+            "resource_exhaustion": 0.9
+          }
+        }
+      }
+    },
+    "integration": {
+      "claudeFlow": {
+        "toolIntegration": true,
+        "automaticRegistration": true,
+        "permissionManagement": true,
+        "workflowIntegration": true
+      },
+      "sparc": {
+        "modeSelection": "automatic",
+        "contextPassing": true,
+        "resultAggregation": true,
+        "statusSynchronization": true
+      },
+      "memory": {
+        "coordinationNamespace": "agent-coordination",
+        "sharedState": true,
+        "progressTracking": true,
+        "resultStorage": true
+      }
+    },
+    "workflows": {
+      "immediate_productivity": [
+        {
+          "name": "smart_task_routing",
+          "description": "Automatically route tasks to optimal agents",
+          "triggers": ["task_creation", "user_request"],
+          "actions": [
+            "analyze_task_complexity",
+            "select_optimal_agents",
+            "spawn_coordinated_agents",
+            "monitor_progress"
+          ],
+          "productivity_gain": "40%"
+        },
+        {
+          "name": "parallel_development",
+          "description": "Split complex tasks into parallel streams",
+          "triggers": ["complex_development_task"],
+          "actions": [
+            "decompose_task",
+            "spawn_parallel_agents",
+            "coordinate_integration",
+            "validate_results"
+          ],
+          "productivity_gain": "60%"
+        },
+        {
+          "name": "auto_code_review",
+          "description": "Automatic code review with tester coordination",
+          "triggers": ["code_completion"],
+          "actions": [
+            "spawn_reviewer_agent",
+            "coordinate_with_tester",
+            "generate_feedback",
+            "track_improvements"
+          ],
+          "productivity_gain": "30%"
+        }
+      ]
+    },
+    "quickStart": {
+      "enabled": true,
+      "presets": {
+        "development": {
+          "agents": ["orchestrator", "coder", "tester", "reviewer"],
+          "coordination": "hierarchical",
+          "maxAgents": 4,
+          "autoStart": true
+        },
+        "research": {
+          "agents": ["researcher", "analyzer"],
+          "coordination": "parallel",
+          "maxAgents": 2,
+          "autoStart": true
+        },
+        "debugging": {
+          "agents": ["debugger", "tester", "analyzer"],
+          "coordination": "pipeline",
+          "maxAgents": 3,
+          "autoStart": true
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,427 @@
+{
+  "sparcWorkflowAutomation": {
+    "version": "1.0.0",
+    "enabled": true,
+    "autoProgression": {
+      "enabled": true,
+      "modes": {
+        "sequential": {
+          "description": "Automatic progression through workflow stages",
+          "triggers": ["task_completion", "milestone_reached", "dependency_satisfied"],
+          "conditions": {
+            "success_threshold": 0.8,
+            "error_threshold": 0.2,
+            "timeout_threshold": "30m"
+          },
+          "progression_rules": [
+            {
+              "from": "analysis",
+              "to": "design",
+              "condition": "analysis_complete AND requirements_validated"
+            },
+            {
+              "from": "design",
+              "to": "implementation",
+              "condition": "architecture_approved AND specifications_complete"
+            },
+            {
+              "from": "implementation",
+              "to": "testing",
+              "condition": "code_complete AND build_successful"
+            },
+            {
+              "from": "testing",
+              "to": "review",
+              "condition": "tests_passing AND coverage_acceptable"
+            },
+            {
+              "from": "review",
+              "to": "deployment",
+              "condition": "review_approved AND quality_gates_passed"
+            }
+          ]
+        },
+        "adaptive": {
+          "description": "Dynamic workflow adaptation based on context",
+          "triggers": ["context_change", "requirement_update", "resource_availability"],
+          "adaptation_strategies": [
+            {
+              "trigger": "high_complexity_detected",
+              "action": "add_architect_mode",
+              "condition": "complexity_score > 0.8"
+            },
+            {
+              "trigger": "performance_issues_detected",
+              "action": "add_optimizer_mode",
+              "condition": "performance_score < 0.6"
+            },
+            {
+              "trigger": "security_concerns_detected",
+              "action": "add_security_review",
+              "condition": "security_risk_score > 0.7"
+            }
+          ]
+        },
+        "parallel": {
+          "description": "Concurrent execution of compatible workflow stages",
+          "compatibility_matrix": {
+            "research": ["analysis", "documentation"],
+            "coder": ["tester", "reviewer"],
+            "designer": ["documenter", "architect"],
+            "optimizer": ["analyzer", "tester"]
+          },
+          "coordination": "memory-based",
+          "conflict_resolution": "priority-based"
+        }
+      }
+    },
+    "workflowTemplates": {
+      "full_development_cycle": {
+        "name": "Full Development Cycle",
+        "description": "Complete development workflow from requirements to deployment",
+        "stages": [
+          {
+            "name": "requirements_analysis",
+            "sparc_modes": ["researcher", "analyzer"],
+            "parallel": true,
+            "outputs": ["requirements_document", "analysis_report"],
+            "success_criteria": ["requirements_complete", "stakeholder_approval"],
+            "auto_progression": true
+          },
+          {
+            "name": "system_design",
+            "sparc_modes": ["architect", "designer"],
+            "depends_on": ["requirements_analysis"],
+            "outputs": ["architecture_document", "design_specifications"],
+            "success_criteria": ["architecture_approved", "design_review_passed"],
+            "auto_progression": true
+          },
+          {
+            "name": "implementation",
+            "sparc_modes": ["coder", "tester"],
+            "depends_on": ["system_design"],
+            "parallel": true,
+            "outputs": ["source_code", "unit_tests"],
+            "success_criteria": ["code_complete", "tests_passing"],
+            "auto_progression": true
+          },
+          {
+            "name": "quality_assurance",
+            "sparc_modes": ["reviewer", "tester", "analyzer"],
+            "depends_on": ["implementation"],
+            "parallel": true,
+            "outputs": ["review_report", "test_results", "quality_metrics"],
+            "success_criteria": ["review_approved", "quality_gates_passed"],
+            "auto_progression": true
+          },
+          {
+            "name": "optimization",
+            "sparc_modes": ["optimizer", "analyzer"],
+            "depends_on": ["quality_assurance"],
+            "optional": true,
+            "condition": "performance_optimization_needed",
+            "outputs": ["optimized_code", "performance_report"],
+            "success_criteria": ["performance_targets_met"],
+            "auto_progression": true
+          },
+          {
+            "name": "documentation",
+            "sparc_modes": ["documenter"],
+            "depends_on": ["quality_assurance"],
+            "parallel_with": ["optimization"],
+            "outputs": ["user_documentation", "api_documentation"],
+            "success_criteria": ["documentation_complete"],
+            "auto_progression": true
+          },
+          {
+            "name": "deployment_prep",
+            "sparc_modes": ["orchestrator", "reviewer"],
+            "depends_on": ["optimization", "documentation"],
+            "outputs": ["deployment_plan", "release_notes"],
+            "success_criteria": ["deployment_approved"],
+            "auto_progression": false
+          }
+        ],
+        "coordination": "hierarchical",
+        "memory_namespace": "full_development_cycle",
+        "estimated_duration": "4-8 hours",
+        "productivity_multiplier": 3.5
+      },
+      "rapid_prototyping": {
+        "name": "Rapid Prototyping",
+        "description": "Fast prototype development with minimal overhead",
+        "stages": [
+          {
+            "name": "concept_validation",
+            "sparc_modes": ["researcher"],
+            "outputs": ["concept_validation"],
+            "success_criteria": ["concept_viable"],
+            "auto_progression": true,
+            "max_duration": "15m"
+          },
+          {
+            "name": "quick_design",
+            "sparc_modes": ["designer"],
+            "depends_on": ["concept_validation"],
+            "outputs": ["prototype_design"],
+            "success_criteria": ["design_feasible"],
+            "auto_progression": true,
+            "max_duration": "30m"
+          },
+          {
+            "name": "rapid_implementation",
+            "sparc_modes": ["coder"],
+            "depends_on": ["quick_design"],
+            "outputs": ["prototype_code"],
+            "success_criteria": ["prototype_functional"],
+            "auto_progression": true,
+            "max_duration": "60m"
+          },
+          {
+            "name": "quick_validation",
+            "sparc_modes": ["tester"],
+            "depends_on": ["rapid_implementation"],
+            "outputs": ["validation_results"],
+            "success_criteria": ["basic_functionality_verified"],
+            "auto_progression": false,
+            "max_duration": "15m"
+          }
+        ],
+        "coordination": "pipeline",
+        "memory_namespace": "rapid_prototyping",
+        "estimated_duration": "2 hours",
+        "productivity_multiplier": 2.0
+      },
+      "research_deep_dive": {
+        "name": "Research Deep Dive",
+        "description": "Comprehensive research and analysis workflow",
+        "stages": [
+          {
+            "name": "topic_exploration",
+            "sparc_modes": ["researcher"],
+            "outputs": ["topic_overview", "research_questions"],
+            "success_criteria": ["research_scope_defined"],
+            "auto_progression": true
+          },
+          {
+            "name": "data_collection",
+            "sparc_modes": ["researcher", "analyzer"],
+            "depends_on": ["topic_exploration"],
+            "parallel": true,
+            "outputs": ["research_data", "preliminary_analysis"],
+            "success_criteria": ["sufficient_data_collected"],
+            "auto_progression": true
+          },
+          {
+            "name": "analysis_synthesis",
+            "sparc_modes": ["analyzer", "innovator"],
+            "depends_on": ["data_collection"],
+            "parallel": true,
+            "outputs": ["analysis_report", "insights", "recommendations"],
+            "success_criteria": ["analysis_complete", "insights_validated"],
+            "auto_progression": true
+          },
+          {
+            "name": "documentation",
+            "sparc_modes": ["documenter"],
+            "depends_on": ["analysis_synthesis"],
+            "outputs": ["research_report", "executive_summary"],
+            "success_criteria": ["documentation_complete"],
+            "auto_progression": false
+          }
+        ],
+        "coordination": "parallel",
+        "memory_namespace": "research_deep_dive",
+        "estimated_duration": "3-6 hours",
+        "productivity_multiplier": 2.5
+      }
+    },
+    "automation_features": {
+      "smart_transitions": {
+        "enabled": true,
+        "decision_engine": "rule-based",
+        "confidence_threshold": 0.75,
+        "manual_override": true,
+        "notification_system": true
+      },
+      "context_preservation": {
+        "enabled": true,
+        "memory_persistence": true,
+        "state_serialization": true,
+        "cross_stage_variables": true,
+        "knowledge_transfer": "automatic"
+      },
+      "error_handling": {
+        "enabled": true,
+        "retry_strategies": [
+          {
+            "condition": "transient_error",
+            "action": "retry",
+            "max_attempts": 3,
+            "backoff": "exponential"
+          },
+          {
+            "condition": "resource_unavailable",
+            "action": "queue_and_retry",
+            "max_wait": "5m"
+          },
+          {
+            "condition": "validation_failed",
+            "action": "rollback_and_notify",
+            "escalation": true
+          }
+        ],
+        "fallback_modes": ["manual", "simplified", "alternative_path"]
+      },
+      "quality_gates": {
+        "enabled": true,
+        "gates": [
+          {
+            "name": "code_quality",
+            "metrics": ["complexity", "coverage", "duplication"],
+            "thresholds": {"complexity": 10, "coverage": 0.8, "duplication": 0.1},
+            "blocking": false
+          },
+          {
+            "name": "security_scan",
+            "metrics": ["vulnerabilities", "compliance"],
+            "thresholds": {"vulnerabilities": 0, "compliance": 1.0},
+            "blocking": true
+          },
+          {
+            "name": "performance_check",
+            "metrics": ["response_time", "throughput"],
+            "thresholds": {"response_time": 200, "throughput": 1000},
+            "blocking": false
+          }
+        ]
+      }
+    },
+    "orchestration_patterns": {
+      "sequential_flow": {
+        "description": "One stage completes before the next begins",
+        "use_cases": ["critical_path", "dependent_stages", "resource_constrained"],
+        "coordination": "handoff-based",
+        "memory_sharing": "cumulative"
+      },
+      "parallel_flow": {
+        "description": "Multiple stages execute simultaneously",
+        "use_cases": ["independent_tasks", "time_critical", "resource_abundant"],
+        "coordination": "event-driven",
+        "memory_sharing": "concurrent"
+      },
+      "hybrid_flow": {
+        "description": "Combination of sequential and parallel patterns",
+        "use_cases": ["complex_workflows", "mixed_dependencies", "optimization"],
+        "coordination": "adaptive",
+        "memory_sharing": "contextual"
+      }
+    },
+    "productivity_optimizations": {
+      "stage_skipping": {
+        "enabled": true,
+        "conditions": [
+          {
+            "skip_stage": "testing",
+            "condition": "simple_task AND high_confidence",
+            "safety_check": true
+          },
+          {
+            "skip_stage": "review",
+            "condition": "automated_validation_passed AND low_risk",
+            "safety_check": true
+          }
+        ]
+      },
+      "stage_merging": {
+        "enabled": true,
+        "combinations": [
+          {
+            "merge_stages": ["implementation", "testing"],
+            "condition": "tdd_approach",
+            "sparc_modes": ["coder", "tester"],
+            "coordination": "tight"
+          },
+          {
+            "merge_stages": ["design", "documentation"],
+            "condition": "documentation_driven_design",
+            "sparc_modes": ["designer", "documenter"],
+            "coordination": "collaborative"
+          }
+        ]
+      },
+      "intelligent_caching": {
+        "enabled": true,
+        "cache_levels": [
+          {
+            "level": "stage_outputs",
+            "ttl": "1h",
+            "invalidation": "dependency_change"
+          },
+          {
+            "level": "analysis_results",
+            "ttl": "24h",
+            "invalidation": "source_change"
+          },
+          {
+            "level": "test_results",
+            "ttl": "30m",
+            "invalidation": "code_change"
+          }
+        ]
+      }
+    },
+    "monitoring_and_control": {
+      "progress_tracking": {
+        "enabled": true,
+        "granularity": "stage",
+        "metrics": ["completion_percentage", "time_elapsed", "quality_score"],
+        "reporting": "real-time",
+        "visualization": "dashboard"
+      },
+      "bottleneck_detection": {
+        "enabled": true,
+        "detection_algorithms": ["queue_length", "processing_time", "resource_utilization"],
+        "automatic_resolution": true,
+        "escalation_rules": [
+          {
+            "condition": "stage_timeout",
+            "action": "add_resources",
+            "threshold": "2x expected_duration"
+          },
+          {
+            "condition": "quality_degradation",
+            "action": "pause_and_review",
+            "threshold": "quality_score < 0.6"
+          }
+        ]
+      },
+      "adaptive_scheduling": {
+        "enabled": true,
+        "factors": ["resource_availability", "priority", "dependencies", "deadlines"],
+        "algorithms": ["priority_queue", "shortest_job_first", "round_robin"],
+        "load_balancing": true
+      }
+    },
+    "integration": {
+      "claude_flow": {
+        "tool_integration": true,
+        "workflow_triggers": ["task_detection", "user_request", "scheduled_run"],
+        "result_aggregation": true,
+        "status_reporting": true
+      },
+      "sparc_modes": {
+        "mode_selection": "automatic",
+        "capability_matching": true,
+        "load_balancing": true,
+        "failover": true
+      },
+      "memory_system": {
+        "namespace": "sparc_workflows",
+        "persistence": true,
+        "sharing": "cross-stage",
+        "cleanup": "automatic"
+      }
+    }
+  }
+}

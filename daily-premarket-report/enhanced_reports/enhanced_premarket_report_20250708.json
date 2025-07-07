@@ -1,0 +1,273 @@
+{
+  "date": "2025-07-07",
+  "executive_summary": {
+    "market_sentiment": "neutral",
+    "key_insights": [
+      "Overnight futures neutral with average change of 0.00%",
+      "Previous session: S&P 500 closed higher at 4751.5 (+0.26%)",
+      "Sector rotation: Technology leading weekly performance",
+      "News sentiment: positive across 3 stories",
+      "VIX closed at 18.8 indicating low volatility"
+    ],
+    "recommended_actions": [
+      "Monitor Technology sector for continued leadership",
+      "Watch futures reaction to overnight developments",
+      "Prepare for volatility around upcoming earnings releases",
+      "Review sector allocation based on weekly rotation patterns"
+    ]
+  },
+  "market_performance": {
+    "previous_close": {
+      "S&P 500": {
+        "symbol": "^GSPC",
+        "current_price": 4751.5,
+        "change": 12.25,
+        "change_percent": 0.26,
+        "volume": 3200000000,
+        "timestamp": "2025-07-07T00:17:37.707890"
+      },
+      "NASDAQ": {
+        "symbol": "^IXIC",
+        "current_price": 14832.6,
+        "change": -8.4,
+        "change_percent": -0.06,
+        "volume": 4100000000,
+        "timestamp": "2025-07-07T00:17:37.707955"
+      },
+      "Russell 2000": {
+        "symbol": "^RUT",
+        "current_price": 2018.25,
+        "change": 5.75,
+        "change_percent": 0.29,
+        "volume": 850000000,
+        "timestamp": "2025-07-07T00:17:37.707961"
+      },
+      "Dow Jones": {
+        "symbol": "^DJI",
+        "current_price": 38441.54,
+        "change": 45.86,
+        "change_percent": 0.12,
+        "volume": 290000000,
+        "timestamp": "2025-07-07T00:17:37.707966"
+      },
+      "VIX": {
+        "symbol": "^VIX",
+        "current_price": 18.75,
+        "change": -1.25,
+        "change_percent": -6.25,
+        "volume": 0,
+        "timestamp": "2025-07-07T00:17:37.707972"
+      }
+    },
+    "overnight_futures": {},
+    "international": {},
+    "sector_rotation": {
+      "weekly_performance": {
+        "Technology": {
+          "weekly_return": 2.1,
+          "volume_trend": "increasing"
+        },
+        "Energy": {
+          "weekly_return": 1.8,
+          "volume_trend": "increasing"
+        },
+        "Financial": {
+          "weekly_return": -1.2,
+          "volume_trend": "decreasing"
+        }
+      },
+      "leaders": [
+        [
+          "Technology",
+          {
+            "weekly_return": 2.1
+          }
+        ],
+        [
+          "Energy",
+          {
+            "weekly_return": 1.8
+          }
+        ]
+      ],
+      "laggards": [
+        [
+          "Financial",
+          {
+            "weekly_return": -1.2
+          }
+        ]
+      ],
+      "rotation_strength": "moderate"
+    }
+  },
+  "news_events": [
+    {
+      "headline": "Federal Reserve Officials Signal Cautious Approach to Future Rate Decisions",
+      "summary": "Fed officials indicated a more measured approach to monetary policy following recent economic data, affecting market expectations for future rate changes.",
+      "source": "Federal Reserve Communications",
+      "timestamp": "2025-07-07T00:17:40.595647",
+      "sentiment": "neutral",
+      "impact_score": 8.5
+    },
+    {
+      "headline": "Technology Sector Shows Resilience Amid Market Volatility",
+      "summary": "Major technology companies continue to demonstrate strong fundamentals despite broader market concerns, with AI-related investments driving growth.",
+      "source": "Market Analysis",
+      "timestamp": "2025-07-07T00:17:40.595662",
+      "sentiment": "positive",
+      "impact_score": 7.2
+    },
+    {
+      "headline": "Oil Prices React to Global Supply Chain Developments",
+      "summary": "Crude oil markets responding to international supply chain dynamics and geopolitical factors affecting energy sector valuations.",
+      "source": "Energy Markets",
+      "timestamp": "2025-07-07T00:17:40.595664",
+      "sentiment": "neutral",
+      "impact_score": 6.8
+    }
+  ],
+  "sector_analysis": {
+    "overall_sentiment": "positive",
+    "average_impact_score": 7.5,
+    "positive_stories": 1,
+    "negative_stories": 0,
+    "neutral_stories": 2,
+    "key_themes": [
+      "Federal Reserve Policy",
+      "Technology Sector",
+      "Energy Markets",
+      "Geopolitical Tensions",
+      "Inflation Concerns"
+    ],
+    "total_stories_analyzed": 3
+  },
+  "technical_analysis": {},
+  "economic_calendar": [
+    {
+      "time": "8:30 AM ET",
+      "event": "Initial Jobless Claims",
+      "importance": "medium",
+      "forecast": "220K",
+      "previous": "218K",
+      "currency": "USD",
+      "source": "Fallback"
+    },
+    {
+      "time": "10:00 AM ET",
+      "event": "ISM Services PMI",
+      "importance": "high",
+      "forecast": "52.5",
+      "previous": "52.6",
+      "currency": "USD",
+      "source": "Fallback"
+    },
+    {
+      "time": "2:00 PM ET",
+      "event": "Fed Chair Powell Speech",
+      "importance": "high",
+      "forecast": "N/A",
+      "previous": "N/A",
+      "currency": "USD",
+      "source": "Fallback"
+    }
+  ],
+  "risk_assessment": {
+    "overall_risk_level": "medium",
+    "primary_risks": [
+      "Heavy earnings calendar with 9 major releases"
+    ],
+    "opportunity_areas": [
+      "Sector rotation opportunities",
+      "Individual stock selection alpha"
+    ],
+    "earnings_focus": [
+      "AAPL (AMC)",
+      "MSFT (AMC)",
+      "GOOGL (AMC)"
+    ]
+  },
+  "earnings_calendar": [
+    {
+      "symbol": "AAPL",
+      "company_name": "Apple Inc.",
+      "date": "2025-07-08",
+      "day_of_week": "Tuesday",
+      "timing": "AMC",
+      "market_cap": "Large",
+      "sector": "Technology"
+    },
+    {
+      "symbol": "MSFT",
+      "company_name": "Microsoft Corp.",
+      "date": "2025-07-09",
+      "day_of_week": "Wednesday",
+      "timing": "AMC",
+      "market_cap": "Large",
+      "sector": "Technology"
+    },
+    {
+      "symbol": "GOOGL",
+      "company_name": "Alphabet Inc.",
+      "date": "2025-07-10",
+      "day_of_week": "Thursday",
+      "timing": "AMC",
+      "market_cap": "Large",
+      "sector": "Technology"
+    },
+    {
+      "symbol": "JPM",
+      "company_name": "JPMorgan Chase",
+      "date": "2025-07-11",
+      "day_of_week": "Friday",
+      "timing": "BMO",
+      "market_cap": "Large",
+      "sector": "Financial"
+    },
+    {
+      "symbol": "TSLA",
+      "company_name": "Tesla Inc.",
+      "date": "2025-07-14",
+      "day_of_week": "Monday",
+      "timing": "AMC",
+      "market_cap": "Large",
+      "sector": "Consumer Discretionary"
+    },
+    {
+      "symbol": "NFLX",
+      "company_name": "Netflix Inc.",
+      "date": "2025-07-08",
+      "day_of_week": "Tuesday",
+      "timing": "AMC",
+      "market_cap": "Large",
+      "sector": "Communication"
+    },
+    {
+      "symbol": "NVDA",
+      "company_name": "NVIDIA Corp.",
+      "date": "2025-07-09",
+      "day_of_week": "Wednesday",
+      "timing": "AMC",
+      "market_cap": "Large",
+      "sector": "Technology"
+    },
+    {
+      "symbol": "BAC",
+      "company_name": "Bank of America",
+      "date": "2025-07-10",
+      "day_of_week": "Thursday",
+      "timing": "BMO",
+      "market_cap": "Large",
+      "sector": "Financial"
+    },
+    {
+      "symbol": "AMZN",
+      "company_name": "Amazon.com Inc.",
+      "date": "2025-07-11",
+      "day_of_week": "Friday",
+      "timing": "AMC",
+      "market_cap": "Large",
+      "sector": "Consumer Discretionary"
+    }
+  ]
+}

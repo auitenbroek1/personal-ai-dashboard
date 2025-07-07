@@ -1,0 +1,57 @@
+{
+  "timestamp": "2025-07-06T22:17:53.059Z",
+  "notifications": [
+    {
+      "id": "weekly_summary_1751838857921",
+      "type": "weekly_summary",
+      "priority": "normal",
+      "title": "Weekly Update Summary",
+      "message": "Weekly update scan complete: 0 updates found, 0 recommendations generated",
+      "details": {
+        "total_updates": 0,
+        "recommendations_count": 0,
+        "critical_items": 0,
+        "risk_level": "unknown",
+        "productivity_impact": "neutral"
+      },
+      "channels": [
+        "email",
+        "report"
+      ],
+      "requires_approval": false,
+      "timestamp": "2025-07-06T21:54:17.921Z",
+      "status": "sent",
+      "sent_results": []
+    },
+    {
+      "id": "weekly_summary_1751840273059",
+      "type": "weekly_summary",
+      "priority": "normal",
+      "title": "Weekly Update Summary",
+      "message": "Weekly update scan complete: 0 updates found, 0 recommendations generated",
+      "details": {
+        "total_updates": 0,
+        "recommendations_count": 0,
+        "critical_items": 0,
+        "risk_level": "unknown",
+        "productivity_impact": "neutral"
+      },
+      "channels": [
+        "email",
+        "report"
+      ],
+      "requires_approval": false,
+      "timestamp": "2025-07-06T22:17:53.059Z",
+      "status": "sent",
+      "sent_results": []
+    },
+    {
+      "id": "test_notification_1751923339995",
+      "type": "dashboard_test",
+      "message": "Cross-system compatibility test notification",
+      "timestamp": "2025-07-07T21:22:19.995Z",
+      "status": "pending"
+    }
+  ],
+  "approvals": []
+}

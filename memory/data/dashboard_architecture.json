@@ -1,0 +1,554 @@
+{
+  "id": "dashboard_architecture",
+  "type": "system_architecture",
+  "version": "1.0.0",
+  "created": "2025-07-07T08:00:00.000Z",
+  "project": "Personal AI Assistant Dashboard",
+  "architecture": {
+    "overview": {
+      "description": "Comprehensive Personal AI Assistant Dashboard integrating existing Claude-Flow automation with real-time monitoring, analytics, and interactive controls",
+      "objectives": [
+        "Centralized monitoring of all AI agents and automation systems",
+        "Real-time performance metrics and system health visualization",
+        "Interactive control interface for agent management",
+        "Comprehensive reporting and analytics dashboard",
+        "Seamless integration with existing Claude-Flow infrastructure"
+      ],
+      "technology_stack": {
+        "frontend": {
+          "framework": "React 18.2.0",
+          "ui_library": "Material-UI/Tailwind CSS",
+          "state_management": "Redux Toolkit",
+          "realtime": "Socket.IO Client",
+          "charts": "Chart.js / D3.js",
+          "build_tool": "Vite",
+          "testing": "Jest + React Testing Library"
+        },
+        "backend": {
+          "runtime": "Node.js 22.x",
+          "framework": "Express.js",
+          "realtime": "Socket.IO",
+          "database": "SQLite (development) / PostgreSQL (production)",
+          "orm": "Prisma",
+          "auth": "JWT + OAuth2",
+          "caching": "Redis",
+          "scheduler": "node-cron"
+        },
+        "deployment": {
+          "platform": "Vercel",
+          "database": "Vercel Postgres",
+          "cdn": "Vercel Edge Network",
+          "monitoring": "Vercel Analytics",
+          "logging": "Vercel Logs"
+        }
+      }
+    },
+    "project_structure": {
+      "root": "/Users/aaronuitenbroek/test-project",
+      "directories": {
+        "dashboard/": {
+          "description": "Main dashboard application",
+          "subdirectories": {
+            "frontend/": {
+              "description": "React frontend application",
+              "structure": {
+                "src/": {
+                  "components/": "Reusable UI components",
+                  "pages/": "Dashboard pages and routes",
+                  "hooks/": "Custom React hooks",
+                  "services/": "API service layer",
+                  "store/": "Redux store configuration",
+                  "utils/": "Utility functions",
+                  "types/": "TypeScript type definitions"
+                },
+                "public/": "Static assets",
+                "dist/": "Build output"
+              }
+            },
+            "backend/": {
+              "description": "Node.js backend services",
+              "structure": {
+                "src/": {
+                  "controllers/": "API route handlers",
+                  "services/": "Business logic services",
+                  "middleware/": "Express middleware",
+                  "models/": "Database models",
+                  "routes/": "API route definitions",
+                  "utils/": "Utility functions",
+                  "types/": "TypeScript type definitions"
+                },
+                "prisma/": "Database schema and migrations",
+                "tests/": "Backend tests"
+              }
+            },
+            "shared/": {
+              "description": "Shared types and utilities",
+              "structure": {
+                "types/": "Shared TypeScript types",
+                "constants/": "Shared constants",
+                "utils/": "Shared utility functions"
+              }
+            }
+          }
+        },
+        "api/": {
+          "description": "Existing Vercel serverless functions",
+          "files": {
+            "status.js": "System status API endpoint",
+            "webhook.js": "Discord webhook handler",
+            "dashboard/": "New dashboard API endpoints"
+          }
+        },
+        "integrations/": {
+          "description": "External system integrations",
+          "structure": {
+            "claude-flow/": "Claude-Flow automation integration",
+            "memory/": "Memory system integration",
+            "monitoring/": "System monitoring integration"
+          }
+        }
+      }
+    },
+    "system_components": {
+      "frontend_components": {
+        "dashboard_layout": {
+          "description": "Main dashboard layout with navigation",
+          "components": [
+            "Header with system status",
+            "Sidebar navigation",
+            "Main content area",
+            "Real-time notifications"
+          ]
+        },
+        "monitoring_dashboard": {
+          "description": "Real-time system monitoring",
+          "components": [
+            "System health metrics",
+            "Agent activity timeline",
+            "Performance charts",
+            "Resource usage graphs"
+          ]
+        },
+        "agent_management": {
+          "description": "Agent control interface",
+          "components": [
+            "Agent list with status",
+            "Agent spawn/control buttons",
+            "Task queue management",
+            "Agent configuration forms"
+          ]
+        },
+        "analytics_dashboard": {
+          "description": "Data analytics and insights",
+          "components": [
+            "Performance trend analysis",
+            "Usage statistics",
+            "Success rate metrics",
+            "Custom report builder"
+          ]
+        },
+        "settings_panel": {
+          "description": "System configuration interface",
+          "components": [
+            "Agent configuration",
+            "System preferences",
+            "Integration settings",
+            "Notification preferences"
+          ]
+        }
+      },
+      "backend_services": {
+        "dashboard_api": {
+          "description": "Main dashboard API service",
+          "endpoints": [
+            "GET /api/dashboard/status - System overview",
+            "GET /api/dashboard/agents - Agent list and status",
+            "POST /api/dashboard/agents - Create/spawn agent",
+            "PUT /api/dashboard/agents/:id - Update agent",
+            "DELETE /api/dashboard/agents/:id - Stop agent"
+          ]
+        },
+        "monitoring_service": {
+          "description": "Real-time monitoring service",
+          "features": [
+            "System health checks",
+            "Performance metrics collection",
+            "Alert generation",
+            "Data aggregation"
+          ]
+        },
+        "websocket_server": {
+          "description": "Real-time communication server",
+          "events": [
+            "system_status_update",
+            "agent_status_change",
+            "task_progress_update",
+            "alert_notification"
+          ]
+        },
+        "integration_service": {
+          "description": "Claude-Flow integration service",
+          "features": [
+            "Agent lifecycle management",
+            "Task coordination",
+            "Memory system integration",
+            "Report generation"
+          ]
+        },
+        "analytics_service": {
+          "description": "Data analytics and reporting",
+          "features": [
+            "Performance metrics calculation",
+            "Trend analysis",
+            "Report generation",
+            "Data visualization preparation"
+          ]
+        }
+      }
+    },
+    "database_design": {
+      "schema": {
+        "agents": {
+          "description": "Agent registry and status",
+          "fields": {
+            "id": "Primary key",
+            "name": "Agent name",
+            "type": "Agent type (researcher, coder, etc.)",
+            "status": "Current status",
+            "config": "Agent configuration JSON",
+            "created_at": "Creation timestamp",
+            "updated_at": "Last update timestamp",
+            "last_active": "Last activity timestamp"
+          }
+        },
+        "tasks": {
+          "description": "Task queue and history",
+          "fields": {
+            "id": "Primary key",
+            "agent_id": "Foreign key to agents",
+            "title": "Task title",
+            "description": "Task description",
+            "status": "Task status",
+            "priority": "Task priority",
+            "created_at": "Creation timestamp",
+            "started_at": "Start timestamp",
+            "completed_at": "Completion timestamp",
+            "result": "Task result JSON"
+          }
+        },
+        "system_metrics": {
+          "description": "System performance metrics",
+          "fields": {
+            "id": "Primary key",
+            "timestamp": "Metric timestamp",
+            "metric_type": "Type of metric",
+            "value": "Metric value",
+            "metadata": "Additional metric data JSON"
+          }
+        },
+        "memory_entries": {
+          "description": "Memory system entries",
+          "fields": {
+            "id": "Primary key",
+            "key": "Memory key",
+            "value": "Memory value JSON",
+            "type": "Entry type",
+            "namespace": "Memory namespace",
+            "created_at": "Creation timestamp",
+            "updated_at": "Last update timestamp"
+          }
+        },
+        "reports": {
+          "description": "Generated reports",
+          "fields": {
+            "id": "Primary key",
+            "type": "Report type",
+            "title": "Report title",
+            "content": "Report content",
+            "metadata": "Report metadata JSON",
+            "created_at": "Creation timestamp"
+          }
+        }
+      }
+    },
+    "claude_flow_integration": {
+      "existing_components": {
+        "memory_system": {
+          "location": "/memory/data/entries.json",
+          "description": "JSON-based memory storage with versioning",
+          "integration": "Direct file system access + API wrapper"
+        },
+        "update_system": {
+          "location": "/memory/update_system_status.json",
+          "description": "System status and component health",
+          "integration": "Status polling + real-time updates"
+        },
+        "agent_registry": {
+          "description": "SPARC agent coordination framework",
+          "integration": "Memory-based agent registration and coordination"
+        },
+        "automation_apis": {
+          "location": "/api/",
+          "description": "Existing status and webhook APIs",
+          "integration": "Extend existing API endpoints"
+        }
+      },
+      "integration_strategy": {
+        "memory_bridge": {
+          "description": "Bridge between file-based memory and database",
+          "implementation": "Sync service to maintain consistency"
+        },
+        "agent_coordination": {
+          "description": "Integrate with existing SPARC framework",
+          "implementation": "Extend agent registry with dashboard controls"
+        },
+        "status_aggregation": {
+          "description": "Aggregate system status from multiple sources",
+          "implementation": "Unified status service"
+        }
+      }
+    },
+    "security_architecture": {
+      "authentication": {
+        "method": "JWT tokens",
+        "providers": ["Local auth", "OAuth2 (Google, GitHub)"],
+        "session_management": "Redis-based sessions",
+        "token_refresh": "Automatic token refresh"
+      },
+      "authorization": {
+        "model": "Role-based access control (RBAC)",
+        "roles": ["admin", "operator", "viewer"],
+        "permissions": {
+          "admin": "Full system access",
+          "operator": "Agent management + monitoring",
+          "viewer": "Read-only access"
+        }
+      },
+      "data_protection": {
+        "encryption": "Data at rest + in transit",
+        "api_security": "Rate limiting + input validation",
+        "audit_logging": "All actions logged",
+        "secure_headers": "Security headers on all responses"
+      }
+    },
+    "deployment_architecture": {
+      "vercel_configuration": {
+        "build_settings": {
+          "framework": "Other",
+          "build_command": "npm run build",
+          "output_directory": "dashboard/frontend/dist",
+          "install_command": "npm install"
+        },
+        "environment_variables": {
+          "DATABASE_URL": "Vercel Postgres connection",
+          "REDIS_URL": "Redis connection",
+          "JWT_SECRET": "JWT signing secret",
+          "CLAUDE_API_KEY": "Claude API key"
+        },
+        "serverless_functions": {
+          "api/dashboard/": "Dashboard API endpoints",
+          "api/websocket/": "WebSocket connection handler",
+          "api/monitoring/": "Monitoring endpoints"
+        }
+      },
+      "ci_cd_pipeline": {
+        "source_control": "GitHub integration",
+        "deployment_triggers": ["Push to main", "Pull request merge"],
+        "build_process": [
+          "Install dependencies",
+          "Run tests",
+          "Build frontend",
+          "Deploy to Vercel"
+        ],
+        "environment_promotion": "Development → Staging → Production"
+      }
+    },
+    "monitoring_and_observability": {
+      "application_monitoring": {
+        "metrics": [
+          "Response times",
+          "Error rates",
+          "Active users",
+          "System resource usage"
+        ],
+        "tools": ["Vercel Analytics", "Custom metrics dashboard"]
+      },
+      "logging": {
+        "levels": ["ERROR", "WARN", "INFO", "DEBUG"],
+        "destinations": ["Vercel Logs", "Console", "File system"],
+        "structured_logging": "JSON format with metadata"
+      },
+      "alerting": {
+        "conditions": [
+          "System health degradation",
+          "Agent failures",
+          "High error rates",
+          "Resource exhaustion"
+        ],
+        "channels": ["Discord webhook", "Email", "Dashboard notifications"]
+      }
+    },
+    "api_design": {
+      "rest_endpoints": {
+        "dashboard": {
+          "base_url": "/api/dashboard",
+          "endpoints": [
+            "GET /overview - System overview",
+            "GET /agents - Agent list",
+            "POST /agents - Create agent",
+            "GET /agents/:id - Agent details",
+            "PUT /agents/:id - Update agent",
+            "DELETE /agents/:id - Stop agent",
+            "GET /tasks - Task list",
+            "POST /tasks - Create task",
+            "GET /metrics - System metrics",
+            "GET /reports - Report list",
+            "POST /reports - Generate report"
+          ]
+        },
+        "monitoring": {
+          "base_url": "/api/monitoring",
+          "endpoints": [
+            "GET /health - System health check",
+            "GET /metrics/:type - Specific metrics",
+            "GET /alerts - Active alerts",
+            "POST /alerts - Create alert"
+          ]
+        }
+      },
+      "websocket_events": {
+        "client_to_server": [
+          "subscribe_to_updates",
+          "agent_command",
+          "task_update",
+          "system_command"
+        ],
+        "server_to_client": [
+          "system_status_update",
+          "agent_status_change",
+          "task_progress_update",
+          "alert_notification",
+          "metric_update"
+        ]
+      }
+    },
+    "data_flow": {
+      "real_time_updates": {
+        "source": "Backend monitoring services",
+        "transport": "WebSocket connections",
+        "destination": "Frontend dashboard components",
+        "frequency": "Every 5 seconds for metrics, immediate for events"
+      },
+      "user_actions": {
+        "source": "Frontend user interface",
+        "transport": "HTTP REST API",
+        "destination": "Backend services + Claude-Flow system",
+        "validation": "Input validation + authorization checks"
+      },
+      "data_persistence": {
+        "source": "Application state + user actions",
+        "transport": "Database ORM (Prisma)",
+        "destination": "PostgreSQL database",
+        "backup": "Automated daily backups"
+      }
+    }
+  },
+  "implementation_phases": {
+    "phase_1": {
+      "name": "Foundation Setup",
+      "duration": "1-2 weeks",
+      "objectives": [
+        "Set up project structure",
+        "Configure development environment",
+        "Implement basic authentication",
+        "Create database schema",
+        "Set up CI/CD pipeline"
+      ]
+    },
+    "phase_2": {
+      "name": "Core Dashboard",
+      "duration": "2-3 weeks",
+      "objectives": [
+        "Implement main dashboard layout",
+        "Create system monitoring views",
+        "Integrate with existing Claude-Flow APIs",
+        "Implement real-time updates",
+        "Add basic agent management"
+      ]
+    },
+    "phase_3": {
+      "name": "Advanced Features",
+      "duration": "2-3 weeks",
+      "objectives": [
+        "Implement analytics dashboard",
+        "Add advanced agent controls",
+        "Create reporting system",
+        "Implement settings management",
+        "Add performance optimization"
+      ]
+    },
+    "phase_4": {
+      "name": "Production Deployment",
+      "duration": "1-2 weeks",
+      "objectives": [
+        "Production environment setup",
+        "Security hardening",
+        "Performance testing",
+        "Documentation completion",
+        "User training materials"
+      ]
+    }
+  },
+  "teaching_workshop": {
+    "title": "Building a Personal AI Assistant Dashboard",
+    "duration": "4 hours",
+    "modules": [
+      {
+        "name": "Architecture Overview",
+        "duration": "45 minutes",
+        "topics": [
+          "System requirements analysis",
+          "Technology stack decisions",
+          "Component architecture design",
+          "Integration patterns"
+        ]
+      },
+      {
+        "name": "Frontend Development",
+        "duration": "90 minutes",
+        "topics": [
+          "React component architecture",
+          "State management with Redux",
+          "Real-time updates with WebSockets",
+          "UI/UX design patterns"
+        ]
+      },
+      {
+        "name": "Backend Development",
+        "duration": "90 minutes",
+        "topics": [
+          "API design and implementation",
+          "Database schema design",
+          "Integration with existing systems",
+          "Authentication and security"
+        ]
+      },
+      {
+        "name": "Deployment and Operations",
+        "duration": "45 minutes",
+        "topics": [
+          "Vercel deployment configuration",
+          "CI/CD pipeline setup",
+          "Monitoring and alerting",
+          "Performance optimization"
+        ]
+      }
+    ],
+    "hands_on_exercises": [
+      "Create a basic dashboard component",
+      "Implement real-time status updates",
+      "Build an agent management interface",
+      "Deploy to Vercel with CI/CD"
+    ]
+  }
+}

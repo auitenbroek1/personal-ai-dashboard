@@ -1,0 +1,19 @@
+{
+  "generation_type": "notion_enhanced",
+  "notion_page_id": "229bfe28-8ab5-8186-aeef-efa4e908814d",
+  "notion_page_url": "https://notion.so/229bfe288ab58186aeefefa4e908814d",
+  "audio_file": "notion_reports/20250706/daily_premarket_report_20250706.txt",
+  "audio_duration": 2.432258064516129,
+  "data_sources": [
+    "TradingView",
+    "Finviz",
+    "fiscal.ai"
+  ],
+  "generation_timestamp": "2025-07-06T23:33:19.672533",
+  "report_stats": {
+    "market_sentiment": "neutral",
+    "risk_level": "medium",
+    "news_items_count": 3,
+    "audio_word_count": 377
+  }
+}

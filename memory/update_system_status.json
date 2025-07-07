@@ -1,0 +1,167 @@
+{
+  "system": {
+    "initialized": true,
+    "lastRun": "2025-07-06T22:17:53.059Z",
+    "nextRun": null,
+    "systemHealth": "operational"
+  },
+  "components": {
+    "github": {
+      "enabled": true,
+      "lastUpdate": "2025-07-06T22:17:52.278Z",
+      "cacheSize": 5,
+      "apiRateLimit": {
+        "remaining": 9,
+        "reset": 1751840331000
+      },
+      "repositories": {
+        "claude_flow": true,
+        "reuven_repos": true
+      },
+      "gists": {
+        "reuven_gists": true,
+        "community_gists": true
+      }
+    },
+    "sparc": {
+      "enabled": true,
+      "lastUpdate": "2025-07-06T22:17:53.036Z",
+      "cacheSize": 0,
+      "sources": {
+        "sparc_methodology": true,
+        "claude_documentation": true
+      }
+    },
+    "analyzer": {
+      "enabled": true,
+      "system_state": {
+        "dependencies": {
+          "cron": "^4.3.1"
+        },
+        "sparc": {
+          "modes": 19,
+          "lastUpdate": "2025-07-06T19:52:28.744Z"
+        }
+      },
+      "cache_size": 0,
+      "analysis_features": {
+        "classification": true,
+        "compatibility": true,
+        "impact_assessment": true
+      }
+    },
+    "scheduler": {
+      "enabled": true,
+      "isRunning": false,
+      "lastRun": null,
+      "schedule": {
+        "frequency": "weekly",
+        "day_of_week": "sunday",
+        "time": "06:00",
+        "timezone": "local"
+      },
+      "cronAvailable": false,
+      "activeJobs": 0,
+      "nextScheduledRun": {}
+    },
+    "reports": {
+      "enabled": true,
+      "report_config": {
+        "enabled": true,
+        "format": "markdown",
+        "sections": [
+          {
+            "name": "executive_summary",
+            "include": [
+              "total_updates",
+              "critical_items",
+              "recommendations"
+            ]
+          },
+          {
+            "name": "detailed_findings",
+            "include": [
+              "new_releases",
+              "gist_updates",
+              "methodology_changes"
+            ]
+          },
+          {
+            "name": "impact_analysis",
+            "include": [
+              "productivity_gains",
+              "compatibility_issues",
+              "risk_assessment"
+            ]
+          },
+          {
+            "name": "action_items",
+            "include": [
+              "auto_applied",
+              "pending_approval",
+              "manual_review"
+            ]
+          },
+          {
+            "name": "system_health",
+            "include": [
+              "current_versions",
+              "enhancement_status",
+              "performance_metrics"
+            ]
+          }
+        ],
+        "delivery": {
+          "file_path": "reports/weekly-update-report.md",
+          "email_enabled": false,
+          "console_summary": true
+        }
+      },
+      "templates_loaded": 2,
+      "last_report": {
+        "filename": "weekly-update-report.md",
+        "created": "2025-07-06T21:54:17.921Z",
+        "size": 1829
+      }
+    },
+    "notifier": {
+      "enabled": true,
+      "channels": {
+        "total": 5,
+        "enabled": 4,
+        "available": [
+          "console",
+          "file",
+          "memory",
+          "email",
+          "interactive"
+        ]
+      },
+      "queues": {
+        "notifications": 2,
+        "approvals": 0
+      },
+      "configuration": {
+        "immediate_triggers": false,
+        "weekly_summary": false,
+        "approval_workflow": false
+      }
+    }
+  },
+  "configuration": {
+    "enabled": true,
+    "schedule": {
+      "frequency": "weekly",
+      "day_of_week": "sunday",
+      "time": "06:00",
+      "timezone": "local"
+    },
+    "auto_update": true
+  },
+  "last_update_results": null,
+  "pending_approvals": {
+    "pending": 0,
+    "approved": 0,
+    "rejected": 0
+  }
+}

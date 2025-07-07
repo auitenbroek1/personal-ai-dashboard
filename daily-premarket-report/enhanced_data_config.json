@@ -1,0 +1,23 @@
+{
+  "tradingview": {
+    "username": "auitenbroek",
+    "password": "TVizda14me!",
+    "enabled": true
+  },
+  "fiscal_ai": {
+    "enabled": false,
+    "api_key": ""
+  },
+  "finviz": {
+    "enabled": true,
+    "rate_limit": 1,
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36"
+  },
+  "enhanced_features": {
+    "sector_analysis": true,
+    "crypto_tracking": true,
+    "earnings_calendar": false,
+    "top_movers_analysis": true,
+    "volatility_regime_detection": true
+  }
+}

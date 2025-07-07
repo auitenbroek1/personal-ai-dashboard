@@ -1,0 +1,47 @@
+{
+  "version": "1.0.0",
+  "lastUpdated": "2025-07-06T20:17:38.263Z",
+  "tools": {
+    "Agent": {
+      "name": "Agent",
+      "version": "1.0.0",
+      "type": "orchestration",
+      "category": "ai-coordination",
+      "description": "Advanced AI agent orchestration and coordination tool for SPARC framework",
+      "capabilities": [
+        "agent-spawning",
+        "agent-coordination",
+        "memory-management",
+        "task-distribution",
+        "parallel-execution",
+        "lifecycle-management"
+      ],
+      "wrapper": "/Users/aaronuitenbroek/test-project/.claude/tools/wrappers/agent-wrapper.js",
+      "registered": "2025-07-06T20:17:38.264Z"
+    }
+  },
+  "categories": {
+    "ai-coordination": {
+      "description": "Tools for AI agent coordination and orchestration",
+      "tools": [
+        "Agent",
+        "AgentSpawner",
+        "AgentCoordinator"
+      ]
+    }
+  },
+  "integrations": {
+    "claude-flow": {
+      "enabled": true,
+      "toolDiscovery": true,
+      "autoRegistration": true,
+      "coordinationSupport": true
+    },
+    "sparc": {
+      "enabled": true,
+      "modeIntegration": true,
+      "memoryIntegration": true,
+      "workflowIntegration": true
+    }
+  }
+}

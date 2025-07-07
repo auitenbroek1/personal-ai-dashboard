@@ -1,0 +1,345 @@
+{
+  "date": "2025-07-07",
+  "executive_summary": {
+    "market_sentiment": "neutral",
+    "key_insights": [
+      "Overnight futures neutral with average change of 0.00%",
+      "Previous session: mixed session with sector rotation",
+      "Sector rotation: Materials leading weekly performance",
+      "News sentiment: neutral across 1 stories",
+      "VIX closed at 20.0 indicating normal conditions"
+    ],
+    "recommended_actions": [
+      "Monitor Materials sector for continued leadership",
+      "Watch futures reaction to overnight developments",
+      "Prepare for volatility around upcoming earnings releases",
+      "Review sector allocation based on weekly rotation patterns"
+    ]
+  },
+  "market_performance": {
+    "previous_close": {
+      "S&P 500 ETF": {
+        "symbol": "SPY",
+        "current_price": 625.34,
+        "change": 2.8899999999999864,
+        "change_percent": 0.46429432082898003,
+        "volume": 51065249,
+        "timestamp": "2025-07-07T09:48:05.954664"
+      },
+      "NASDAQ ETF": {
+        "symbol": "QQQ",
+        "current_price": 556.22,
+        "change": 3.0400000000000773,
+        "change_percent": 0.5495498752666541,
+        "volume": 26444199,
+        "timestamp": "2025-07-07T09:48:06.470304"
+      },
+      "Russell 2000 ETF": {
+        "symbol": "IWM",
+        "current_price": 223.08,
+        "change": 1.0700000000000216,
+        "change_percent": 0.4819602720598269,
+        "volume": 23555219,
+        "timestamp": "2025-07-07T09:48:06.905336"
+      },
+      "Dow Jones ETF": {
+        "symbol": "DIA",
+        "current_price": 448.09,
+        "change": 2.419999999999959,
+        "change_percent": 0.5430026701370877,
+        "volume": 2806897,
+        "timestamp": "2025-07-07T09:48:09.977583"
+      }
+    },
+    "overnight_futures": {},
+    "international": {
+      "Japan (Nikkei)": {
+        "symbol": "EWJ",
+        "current_price": 74.6,
+        "change": 0.18999999999999773,
+        "change_percent": 0.2553420239215129,
+        "volume": 1996157,
+        "timestamp": "2025-07-07T09:48:13.026748"
+      },
+      "Hong Kong (Hang Seng)": {
+        "symbol": "EWH",
+        "current_price": 20.17,
+        "change": 0.010000000000001563,
+        "change_percent": 0.04960317460318235,
+        "volume": 1763042,
+        "timestamp": "2025-07-07T09:48:13.477064"
+      },
+      "UK (FTSE)": {
+        "symbol": "EWU",
+        "current_price": 39.82,
+        "change": 0.04999999999999716,
+        "change_percent": 0.12572290671359607,
+        "volume": 1874290,
+        "timestamp": "2025-07-07T09:48:13.929092"
+      },
+      "Germany (DAX)": {
+        "symbol": "EWG",
+        "current_price": 42.21,
+        "change": 0.09000000000000341,
+        "change_percent": 0.2136752136752218,
+        "volume": 1144416,
+        "timestamp": "2025-07-07T09:48:15.377218"
+      },
+      "France (CAC)": {
+        "symbol": "EWQ",
+        "current_price": 43.08,
+        "change": -0.10999999999999943,
+        "change_percent": -0.2546885853206748,
+        "volume": 247394,
+        "timestamp": "2025-07-07T09:48:15.825896"
+      }
+    },
+    "current_prices": {},
+    "sector_rotation": {
+      "weekly_performance": {
+        "Technology": {
+          "weekly_return": 1.02,
+          "current_price": 255.81,
+          "volume_trend": "increasing"
+        },
+        "Financial": {
+          "weekly_return": 1.06,
+          "current_price": 52.92,
+          "volume_trend": "increasing"
+        },
+        "Energy": {
+          "weekly_return": 2.04,
+          "current_price": 86.54,
+          "volume_trend": "increasing"
+        },
+        "Healthcare": {
+          "weekly_return": 0.09,
+          "current_price": 134.91,
+          "volume_trend": "increasing"
+        },
+        "Industrial": {
+          "weekly_return": 1.29,
+          "current_price": 149.43,
+          "volume_trend": "increasing"
+        },
+        "Consumer Staples": {
+          "weekly_return": 1.21,
+          "current_price": 81.95,
+          "volume_trend": "increasing"
+        },
+        "Consumer Discretionary": {
+          "weekly_return": 0.67,
+          "current_price": 218.79,
+          "volume_trend": "increasing"
+        },
+        "Utilities": {
+          "weekly_return": 0.27,
+          "current_price": 81.88,
+          "volume_trend": "increasing"
+        },
+        "Materials": {
+          "weekly_return": 3.45,
+          "current_price": 90.84,
+          "volume_trend": "increasing"
+        },
+        "Real Estate": {
+          "weekly_return": 0.81,
+          "current_price": 41.76,
+          "volume_trend": "increasing"
+        }
+      },
+      "leaders": [
+        [
+          "Materials",
+          {
+            "weekly_return": 3.45,
+            "current_price": 90.84,
+            "volume_trend": "increasing"
+          }
+        ],
+        [
+          "Energy",
+          {
+            "weekly_return": 2.04,
+            "current_price": 86.54,
+            "volume_trend": "increasing"
+          }
+        ],
+        [
+          "Industrial",
+          {
+            "weekly_return": 1.29,
+            "current_price": 149.43,
+            "volume_trend": "increasing"
+          }
+        ]
+      ],
+      "laggards": [
+        [
+          "Consumer Discretionary",
+          {
+            "weekly_return": 0.67,
+            "current_price": 218.79,
+            "volume_trend": "increasing"
+          }
+        ],
+        [
+          "Utilities",
+          {
+            "weekly_return": 0.27,
+            "current_price": 81.88,
+            "volume_trend": "increasing"
+          }
+        ],
+        [
+          "Healthcare",
+          {
+            "weekly_return": 0.09,
+            "current_price": 134.91,
+            "volume_trend": "increasing"
+          }
+        ]
+      ],
+      "rotation_strength": "moderate"
+    }
+  },
+  "news_events": [
+    {
+      "headline": "ERROR",
+      "summary": "No real news data available",
+      "source": "ERROR",
+      "timestamp": "",
+      "sentiment": "neutral",
+      "impact_score": 0
+    }
+  ],
+  "sector_analysis": {
+    "overall_sentiment": "neutral",
+    "average_impact_score": 0.0,
+    "positive_stories": 0,
+    "negative_stories": 0,
+    "neutral_stories": 1,
+    "key_themes": [
+      "ERROR"
+    ],
+    "total_stories_analyzed": 1
+  },
+  "technical_analysis": {},
+  "economic_calendar": [
+    {
+      "time": "8:30 AM ET",
+      "event": "Advance Monthly Sales for Retail and Food Services",
+      "importance": "medium",
+      "forecast": "N/A",
+      "previous": "N/A",
+      "currency": "USD",
+      "source": "Federal Reserve (FRED)"
+    },
+    {
+      "time": "8:30 AM ET",
+      "event": "Consumer Price Index",
+      "importance": "high",
+      "forecast": "N/A",
+      "previous": "N/A",
+      "currency": "USD",
+      "source": "Federal Reserve (FRED)"
+    },
+    {
+      "time": "8:30 AM ET",
+      "event": "Employment Cost Index",
+      "importance": "high",
+      "forecast": "N/A",
+      "previous": "N/A",
+      "currency": "USD",
+      "source": "Federal Reserve (FRED)"
+    },
+    {
+      "time": "8:30 AM ET",
+      "event": "G.17 Industrial Production and Capacity Utilization",
+      "importance": "medium",
+      "forecast": "N/A",
+      "previous": "N/A",
+      "currency": "USD",
+      "source": "Federal Reserve (FRED)"
+    },
+    {
+      "time": "8:30 AM ET",
+      "event": "G.19 Consumer Credit",
+      "importance": "medium",
+      "forecast": "N/A",
+      "previous": "N/A",
+      "currency": "USD",
+      "source": "Federal Reserve (FRED)"
+    },
+    {
+      "time": "8:30 AM ET",
+      "event": "G.5 Foreign Exchange Rates",
+      "importance": "low",
+      "forecast": "N/A",
+      "previous": "N/A",
+      "currency": "USD",
+      "source": "Federal Reserve (FRED)"
+    },
+    {
+      "time": "8:30 AM ET",
+      "event": "H.10 Foreign Exchange Rates",
+      "importance": "low",
+      "forecast": "N/A",
+      "previous": "N/A",
+      "currency": "USD",
+      "source": "Federal Reserve (FRED)"
+    },
+    {
+      "time": "8:30 AM ET",
+      "event": "H.15 Selected Interest Rates",
+      "importance": "low",
+      "forecast": "N/A",
+      "previous": "N/A",
+      "currency": "USD",
+      "source": "Federal Reserve (FRED)"
+    },
+    {
+      "time": "8:30 AM ET",
+      "event": "H.3 Aggregate Reserves of Depository Institutions and the Monetary Base",
+      "importance": "low",
+      "forecast": "N/A",
+      "previous": "N/A",
+      "currency": "USD",
+      "source": "Federal Reserve (FRED)"
+    },
+    {
+      "time": "8:30 AM ET",
+      "event": "H.4.1 Factors Affecting Reserve Balances",
+      "importance": "low",
+      "forecast": "N/A",
+      "previous": "N/A",
+      "currency": "USD",
+      "source": "Federal Reserve (FRED)"
+    }
+  ],
+  "risk_assessment": {
+    "overall_risk_level": "medium",
+    "primary_risks": [
+      "Standard market volatility",
+      "Geopolitical uncertainties"
+    ],
+    "opportunity_areas": [
+      "Sector rotation opportunities",
+      "Individual stock selection alpha"
+    ],
+    "earnings_focus": [
+      "I (AMC)"
+    ]
+  },
+  "earnings_calendar": [
+    {
+      "symbol": "I",
+      "company_name": "",
+      "date": "f",
+      "day_of_week": "Monday",
+      "timing": "AMC",
+      "market_cap": "Large",
+      "sector": "Technology"
+    }
+  ]
+}

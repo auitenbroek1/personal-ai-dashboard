@@ -1,0 +1,23 @@
+{
+  "mcpServers": {
+    "safla": {
+      "command": "python3",
+      "args": [
+        "/Users/aaronuitenbroek/test-project/.claude/integrations/safla_mcp_server.py"
+      ],
+      "env": {
+        "SAFLA_REMOTE_URL": "https://safla.fly.dev"
+      }
+    },
+    "fact": {
+      "command": "python3",
+      "args": [
+        "/Users/aaronuitenbroek/test-project/.claude/fact/mcp_server.py"
+      ],
+      "env": {
+        "ANTHROPIC_API_KEY": "${ANTHROPIC_API_KEY}",
+        "FACT_DATABASE_PATH": "/Users/aaronuitenbroek/test-project/.claude/fact/database.db"
+      }
+    }
+  }
+}

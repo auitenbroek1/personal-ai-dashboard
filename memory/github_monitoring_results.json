@@ -1,0 +1,264 @@
+{
+  "lastUpdate": "2025-07-06T22:17:52.280Z",
+  "results": [
+    {
+      "timestamp": "2025-07-06T22:17:50.982Z",
+      "repositories": [
+        {
+          "repo": "claude-flow",
+          "error": "cachedIds.has is not a function",
+          "updates": []
+        }
+      ],
+      "gists": [
+        {
+          "user": "reuvencohen",
+          "updates": [],
+          "checked_at": "2025-07-06T22:17:51.757Z"
+        },
+        {
+          "type": "search",
+          "query": "claude-flow OR sparc OR ai-agent",
+          "updates": [],
+          "checked_at": "2025-07-06T22:17:51.758Z"
+        }
+      ],
+      "discoveries": [],
+      "errors": []
+    },
+    {
+      "timestamp": "2025-07-06T21:54:15.323Z",
+      "repositories": [
+        {
+          "repo": "claude-flow",
+          "error": "cachedIds.has is not a function",
+          "updates": []
+        }
+      ],
+      "gists": [
+        {
+          "user": "reuvencohen",
+          "updates": [],
+          "checked_at": "2025-07-06T21:54:16.496Z"
+        },
+        {
+          "type": "search",
+          "query": "claude-flow OR sparc OR ai-agent",
+          "updates": [],
+          "checked_at": "2025-07-06T21:54:16.496Z"
+        }
+      ],
+      "discoveries": [],
+      "errors": []
+    },
+    {
+      "timestamp": "2025-07-06T21:53:45.506Z",
+      "repositories": [
+        {
+          "repo": "anthropics/claude-code",
+          "updates": [
+            {
+              "type": "pull_request",
+              "title": "Enhancement Proposal: Expand STDOUT via MCP tool name suffix",
+              "number": 3057,
+              "url": "https://github.com/anthropics/claude-code/pull/3057",
+              "author": "abbott",
+              "created_at": "2025-07-06T11:55:41Z",
+              "description": "### Summary\r\n\r\nThis pull request adds an enhancement proposal document outlining a method for supporting mode namespaces (e.g., **`__expand`**) in MCP tool names (e.g., **`mcp__acme__get_help__expand`**). \r\n\r\n### Problem \r\nClaude Code does not support automatic STDOUT expansion for specific MCP tools\r\n\r\nAdjacent Issue: #2638 \r\n\r\n### Solution\r\nAllow tool names to include a mode namespace suffix such as **`__expand`**\r\n\r\nExample usage:\r\n\r\n```js\r\nserver.registerTool(\r\n  \"help__expand\",  // ← mode namespace\r\n  {\r\n    title: \"Help\",\r\n    description: \"Display help information (always expanded)\",\r\n    inputSchema: zodToJsonSchema(z.object({})),\r\n  }\r\n  // ...\r\n)\r\n```\r\n\r\n### Why This Works\r\n- Allows MCP tools to indicate their behavior directly in their name\r\n- Provides a pragmatic solution that is zero-config, self-documenting, and backward compatible\r\n- Keeps tool registration simple and flexible, while providing deeper MCP integration\r\n- Elevates the combined capability of Claude Code and MCP, and overall user experience\r\n- Minimal footprint and implementation lift\r\n",
+              "state": "open",
+              "severity": "minor"
+            },
+            {
+              "type": "pull_request",
+              "title": "Migrate devcontainer to use Docker Compose",
+              "number": 2865,
+              "url": "https://github.com/anthropics/claude-code/pull/2865",
+              "author": "yakigac",
+              "created_at": "2025-07-02T14:09:20Z",
+              "description": "## Summary\r\n\r\nThis PR proposes migrating the devcontainer setup to use Docker Compose, aiming to improve the flexibility and maintainability of the development environment.\r\n\r\n## Changes Proposed\r\n\r\n- Move container settings from devcontainer.json to compose.yml\r\n- Remove nat table initialization from init-firewall.sh to avoid conflicts with Docker Compose-managed networks\r\n\r\n\r\nFeel free to reject this proposal if it doesn't fit your workflow or preferences.",
+              "state": "open",
+              "severity": "minor"
+            }
+          ],
+          "checked_at": "2025-07-06T21:53:46.535Z"
+        }
+      ],
+      "gists": [
+        {
+          "user": "reuvencohen",
+          "updates": [],
+          "checked_at": "2025-07-06T21:53:47.214Z"
+        },
+        {
+          "type": "search",
+          "query": "claude-flow OR sparc OR ai-agent",
+          "updates": [],
+          "checked_at": "2025-07-06T21:53:47.214Z"
+        }
+      ],
+      "discoveries": [
+        {
+          "type": "repository",
+          "name": "ruvnet/claude-code-flow",
+          "description": "This mode serves as a code-first swarm orchestration layer, enabling Claude Code to write, edit, test, and optimize code autonomously across recursive agent cycles.",
+          "url": "https://github.com/ruvnet/claude-code-flow",
+          "stars": 1291,
+          "language": "TypeScript",
+          "updated_at": "2025-07-06T21:53:16Z",
+          "discovery_query": "claude-flow"
+        },
+        {
+          "type": "repository",
+          "name": "rhofkens/mcp-quotes-server-claude-code",
+          "description": "Another implementation of the mcp quotes server, this time done with claude code and flow.",
+          "url": "https://github.com/rhofkens/mcp-quotes-server-claude-code",
+          "stars": 0,
+          "language": "TypeScript",
+          "updated_at": "2025-07-06T13:46:52Z",
+          "discovery_query": "claude-flow"
+        },
+        {
+          "type": "repository",
+          "name": "jarredkenny/cf",
+          "description": "Claude Flow wrapper with tmux and git worktree integration",
+          "url": "https://github.com/jarredkenny/cf",
+          "stars": 0,
+          "language": "Shell",
+          "updated_at": "2025-07-05T21:21:04Z",
+          "discovery_query": "claude-flow"
+        },
+        {
+          "type": "repository",
+          "name": "ricketter1984/MacroIntel",
+          "description": "AI-powered market intelligence system for traders — combines real-time news, strategy analysis, macro awareness, and automated reporting using Claude Flow, GPT, and financial APIs.",
+          "url": "https://github.com/ricketter1984/MacroIntel",
+          "stars": 0,
+          "language": "Python",
+          "updated_at": "2025-07-04T23:04:12Z",
+          "discovery_query": "claude-flow"
+        },
+        {
+          "type": "repository",
+          "name": "cklose2000/claude-code-flow-fixed",
+          "description": "Fixed version of Claude Code Flow with working web console",
+          "url": "https://github.com/cklose2000/claude-code-flow-fixed",
+          "stars": 0,
+          "language": "TypeScript",
+          "updated_at": "2025-07-02T21:46:39Z",
+          "discovery_query": "claude-flow"
+        },
+        {
+          "type": "repository",
+          "name": "agenticsorg/sparc2",
+          "description": "The SPARC Framework is a comprehensive methodology designed to guide the development of robust and scalable applications. SPARC stands for Specification, Pseudocode, Architecture, Refinement, and Completion. Each step ensures thorough planning, execution, and reflection throughout the project lifecycle.",
+          "url": "https://github.com/agenticsorg/sparc2",
+          "stars": 164,
+          "language": "TypeScript",
+          "updated_at": "2025-07-06T20:40:40Z",
+          "discovery_query": "sparc methodology"
+        },
+        {
+          "type": "repository",
+          "name": "kvbulusu/Open-Sparc-T2-Processor-SOC",
+          "description": "OPENSPARC-T2 Processor  TFM (SOC Design methodology, scripts)",
+          "url": "https://github.com/kvbulusu/Open-Sparc-T2-Processor-SOC",
+          "stars": 4,
+          "language": "Tcl",
+          "updated_at": "2025-05-28T09:42:19Z",
+          "discovery_query": "sparc methodology"
+        },
+        {
+          "type": "repository",
+          "name": "itsZaid05/AI-AGENT-",
+          "description": "Designed and implemented an AI Agent that connects a large language model (LLM) with custom tools like real-time web search (TavilySearch) and on-demand computations (multiply), orchestrated through LangGraph for state-based workflow control. ",
+          "url": "https://github.com/itsZaid05/AI-AGENT-",
+          "stars": 0,
+          "language": "Python",
+          "updated_at": "2025-07-06T21:36:26Z",
+          "discovery_query": "ai-agent workflow"
+        },
+        {
+          "type": "repository",
+          "name": "zengarv/ConverSync",
+          "description": "Conversync is a real-time, voice-enabled AI agent that joins your meetings, understands conversations, and streamlines post-meeting workflows. It captures audio, identifies speakers, transcribes dialogue, extracts key action items, and emails handouts—all autonomously.",
+          "url": "https://github.com/zengarv/ConverSync",
+          "stars": 0,
+          "language": "Python",
+          "updated_at": "2025-07-06T21:34:16Z",
+          "discovery_query": "ai-agent workflow"
+        },
+        {
+          "type": "repository",
+          "name": "imaryanjoshi/Cerno-Agentic-Local-Deep-Research",
+          "description": "Cerno is an open-source tool that enables deep, multi-step research with autonomous AI agents. It offers clear insights into each reasoning step, allowing users to manage complex workflows effectively. 🐙🌟",
+          "url": "https://github.com/imaryanjoshi/Cerno-Agentic-Local-Deep-Research",
+          "stars": 4,
+          "language": "Python",
+          "updated_at": "2025-07-06T20:53:08Z",
+          "discovery_query": "ai-agent workflow"
+        },
+        {
+          "type": "repository",
+          "name": "sergiiogg72/agentic-workflows",
+          "description": "This repository offers tools and workflows for AI agents, focusing on Claude and Cursor integrations. Explore the code implementations and desktop applications to enhance your projects! 🛠️🌟",
+          "url": "https://github.com/sergiiogg72/agentic-workflows",
+          "stars": 1,
+          "language": null,
+          "updated_at": "2025-07-06T20:50:06Z",
+          "discovery_query": "ai-agent workflow"
+        },
+        {
+          "type": "repository",
+          "name": "sheiselanor/AI-Agentic-Workflows-Suite",
+          "description": "This repository contains a comprehensive suite of end-to-end AI automation workflows built using n8n, designed for real-time humanlike interactions across voice, text, avatar, and CRM systems. The project covers three major tasks, engaging with users via various channels like Twilio, WhatsApp, Google Calendar, HeyGen, and Airtable.",
+          "url": "https://github.com/sheiselanor/AI-Agentic-Workflows-Suite",
+          "stars": 0,
+          "language": "JavaScript",
+          "updated_at": "2025-07-06T20:38:15Z",
+          "discovery_query": "ai-agent workflow"
+        },
+        {
+          "type": "repository",
+          "name": "Cryjaxxx/claude-sessions",
+          "description": "Custom slash commands for Claude Code enhance development session management by documenting progress, tracking changes, and facilitating knowledge transfer. These tools streamline collaboration and improve issue resolution, making coding sessions more effective. 🐙✨",
+          "url": "https://github.com/Cryjaxxx/claude-sessions",
+          "stars": 5,
+          "language": null,
+          "updated_at": "2025-07-06T21:00:03Z",
+          "discovery_query": "anthropic claude tools"
+        },
+        {
+          "type": "repository",
+          "name": "pangansteven/claude-code-base-action",
+          "description": "This GitHub Action enables seamless integration of Claude Code into your workflows, allowing you to execute commands easily. Enhance your projects with powerful tools and streamline your development process! 🛠️🚀",
+          "url": "https://github.com/pangansteven/claude-code-base-action",
+          "stars": 2,
+          "language": "TypeScript",
+          "updated_at": "2025-07-06T20:32:25Z",
+          "discovery_query": "anthropic claude tools"
+        },
+        {
+          "type": "repository",
+          "name": "Andyrex1224/claude-code-action",
+          "description": "Claude Code Action is a versatile tool for GitHub that enhances PRs and issues by providing code insights and implementing changes. It integrates smoothly with GitHub comments, making collaboration easier for developers. 🐙✨",
+          "url": "https://github.com/Andyrex1224/claude-code-action",
+          "stars": 0,
+          "language": "TypeScript",
+          "updated_at": "2025-07-06T20:32:02Z",
+          "discovery_query": "anthropic claude tools"
+        },
+        {
+          "type": "repository",
+          "name": "milxxyzxc/mcp-boilerplate",
+          "description": "A powerful, production-ready MCP server implementing the Model Context Protocol with robust SSE transport, built-in tools, and comprehensive error handling. Seamlessly connect AI models to data sources with enterprise-grade stability and performance.",
+          "url": "https://github.com/milxxyzxc/mcp-boilerplate",
+          "stars": 2,
+          "language": "TypeScript",
+          "updated_at": "2025-07-06T20:22:32Z",
+          "discovery_query": "anthropic claude tools"
+        }
+      ],
+      "errors": []
+    }
+  ]
+}

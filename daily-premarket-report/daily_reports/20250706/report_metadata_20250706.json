@@ -1,0 +1,23 @@
+{
+  "generation_date": "2025-07-06",
+  "generation_time": "2025-07-06T23:17:42.767966-05:00",
+  "timezone": "US/Central",
+  "files": {
+    "pdf_report": "daily_reports/20250706/daily_premarket_report_20250706.pdf",
+    "audio_file": "daily_reports/20250706/daily_premarket_report_20250706.txt",
+    "audio_metadata": "daily_reports/20250706/audio_metadata_20250706.json"
+  },
+  "report_stats": {
+    "audio_duration_minutes": 2.4516129032258065,
+    "script_word_count": 380,
+    "news_items_count": 3,
+    "market_sentiment": "neutral",
+    "risk_level": "medium"
+  },
+  "data_sources": {
+    "market_data": "Yahoo Finance",
+    "news_analysis": "Generated",
+    "technical_analysis": "YFinance + Custom",
+    "economic_calendar": "Sample Data"
+  }
+}

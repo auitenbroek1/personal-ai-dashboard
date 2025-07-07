@@ -1,0 +1,77 @@
+{
+  "lastUpdate": "2025-07-06T22:17:53.039Z",
+  "results": [
+    {
+      "timestamp": "2025-07-06T22:17:52.281Z",
+      "sparc_methodology": [
+        {
+          "source": "https://github.com/reuvencohen/sparc-methodology",
+          "type": "github",
+          "category": "sparc",
+          "changes": [
+            {
+              "type": "wiki_check",
+              "url": "https://github.com/reuvencohen/sparc-methodology/wiki",
+              "note": "Wiki monitoring requires git access for full functionality"
+            }
+          ],
+          "checked_at": "2025-07-06T22:17:52.688Z"
+        },
+        {
+          "source": "https://sparc-methodology.com",
+          "type": "website",
+          "category": "sparc",
+          "changes": [],
+          "checked_at": "2025-07-06T22:17:52.795Z"
+        }
+      ],
+      "claude_documentation": [
+        {
+          "source": "https://docs.anthropic.com/en/docs/claude-code",
+          "type": "website",
+          "category": "claude",
+          "changes": [],
+          "checked_at": "2025-07-06T22:17:53.036Z"
+        }
+      ],
+      "changes_detected": [],
+      "errors": []
+    },
+    {
+      "timestamp": "2025-07-06T21:54:17.219Z",
+      "sparc_methodology": [
+        {
+          "source": "https://github.com/reuvencohen/sparc-methodology",
+          "type": "github",
+          "category": "sparc",
+          "changes": [
+            {
+              "type": "wiki_check",
+              "url": "https://github.com/reuvencohen/sparc-methodology/wiki",
+              "note": "Wiki monitoring requires git access for full functionality"
+            }
+          ],
+          "checked_at": "2025-07-06T21:54:17.626Z"
+        },
+        {
+          "source": "https://sparc-methodology.com",
+          "type": "website",
+          "category": "sparc",
+          "changes": [],
+          "checked_at": "2025-07-06T21:54:17.669Z"
+        }
+      ],
+      "claude_documentation": [
+        {
+          "source": "https://docs.anthropic.com/en/docs/claude-code",
+          "type": "website",
+          "category": "claude",
+          "changes": [],
+          "checked_at": "2025-07-06T21:54:17.875Z"
+        }
+      ],
+      "changes_detected": [],
+      "errors": []
+    }
+  ]
+}
