@@ -1,0 +1,156 @@
+name: Claude-Flow CI/CD
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+  schedule:
+    # Run weekly on Sunday at 12:00 UTC (sync with claude-flow automation)
+    - cron: '0 12 * * 0'
+
+env:
+  NODE_VERSION: '22.x'
+
+jobs:
+  test-automation-system:
+    runs-on: ubuntu-latest
+    name: Test Claude-Flow Automation
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ env.NODE_VERSION }}
+        cache: 'npm'
+        
+    - name: Install dependencies
+      run: npm ci
+      
+    - name: Test GitHub Monitor
+      run: |
+        node .claude/automation/github-monitor.js .claude/automation/update-system.json . status
+        
+    - name: Test SPARC Monitor
+      run: |
+        node .claude/automation/sparc-monitor.js .claude/automation/update-system.json . status
+        
+    - name: Test Update Analyzer
+      run: |
+        node .claude/automation/update-analyzer.js .claude/automation/update-system.json . status
+        
+    - name: Test Report Generator
+      run: |
+        node .claude/automation/report-generator.js .claude/automation/update-system.json . status
+        
+    - name: Test Notification System
+      run: |
+        node .claude/automation/notifier.js .claude/automation/update-system.json . status
+
+  test-sparc-modes:
+    runs-on: ubuntu-latest
+    name: Validate SPARC Integration
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ env.NODE_VERSION }}
+        
+    - name: Validate CLAUDE.md Configuration
+      run: |
+        # Check if CLAUDE.md has proper structure
+        grep -q "SPARC-enabled claude-flow project" CLAUDE.md
+        grep -q "17 SPARC Modes" CLAUDE.md
+        grep -q "Agent Integration" CLAUDE.md
+        
+    - name: Test Claude-Flow Commands Structure
+      run: |
+        # Validate command documentation exists
+        grep -q "./claude-flow" CLAUDE.md
+        grep -q "sparc" CLAUDE.md
+        grep -q "swarm" CLAUDE.md
+
+  integration-test:
+    runs-on: ubuntu-latest
+    name: Full System Integration Test
+    needs: [test-automation-system, test-sparc-modes]
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ env.NODE_VERSION }}
+        cache: 'npm'
+        
+    - name: Install dependencies
+      run: npm ci
+      
+    - name: Initialize Update System
+      run: |
+        node .claude/automation/update-master.js . initialize
+        
+    - name: Run System Status Check
+      run: |
+        node .claude/automation/update-master.js . status
+        
+    - name: Generate Test Report
+      run: |
+        node .claude/automation/report-generator.js .claude/automation/update-system.json . generate
+        
+    - name: Upload Test Reports
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: claude-flow-reports
+        path: |
+          reports/
+          memory/
+          logs/
+        retention-days: 7
+
+  security-scan:
+    runs-on: ubuntu-latest
+    name: Security & Credential Validation
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Check for exposed secrets
+      run: |
+        # Ensure no secrets in automation configs
+        ! grep -r "password\|secret\|token\|key" .claude/automation/ --include="*.json" --include="*.js" | grep -v "ssh_key_path\|api_rate_limit\|keyring"
+        
+    - name: Validate SSH key references
+      run: |
+        # Check SSH configuration references are relative paths
+        grep -q "~/.ssh/id_ed25519" .claude/automation/update-system.json
+        
+    - name: Security best practices check
+      run: |
+        # Ensure credentials documentation exists
+        test -f .claude/CREDENTIALS.md
+        # Check file permissions documentation
+        grep -q "600 permissions" .claude/CREDENTIALS.md
+
+  notify-on-failure:
+    runs-on: ubuntu-latest
+    name: Notification on CI Failure
+    needs: [test-automation-system, test-sparc-modes, integration-test, security-scan]
+    if: failure()
+    
+    steps:
+    - name: Notify Discord (if configured)
+      run: |
+        echo "CI/CD failed - would notify Discord webhook if configured"
+        echo "Failed jobs: ${{ needs.test-automation-system.result }}, ${{ needs.test-sparc-modes.result }}, ${{ needs.integration-test.result }}, ${{ needs.security-scan.result }}"

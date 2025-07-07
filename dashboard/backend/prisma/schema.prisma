@@ -1,0 +1,112 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Agent {
+  id         String   @id @default(cuid())
+  name       String
+  type       String   // AgentType: researcher, coder, monitor, analyst, coordinator
+  status     String   // AgentStatus: idle, active, busy, error, offline
+  config     Json     @default("{}")
+  createdAt  DateTime @default(now()) @map("created_at")
+  updatedAt  DateTime @updatedAt @map("updated_at")
+  lastActive DateTime @default(now()) @map("last_active")
+  
+  // Relations
+  tasks      Task[]
+  
+  @@map("agents")
+}
+
+model Task {
+  id          String    @id @default(cuid())
+  agentId     String    @map("agent_id")
+  title       String
+  description String
+  status      String    // TaskStatus: pending, in_progress, completed, failed, cancelled
+  priority    String    // TaskPriority: low, medium, high, urgent
+  result      Json?     @default("{}")
+  createdAt   DateTime  @default(now()) @map("created_at")
+  startedAt   DateTime? @map("started_at")
+  completedAt DateTime? @map("completed_at")
+  
+  // Relations
+  agent       Agent     @relation(fields: [agentId], references: [id], onDelete: Cascade)
+  
+  @@map("tasks")
+}
+
+model SystemMetric {
+  id         String   @id @default(cuid())
+  timestamp  DateTime @default(now())
+  metricType String   @map("metric_type") // MetricType: cpu_usage, memory_usage, response_time, error_rate, active_agents, completed_tasks
+  value      Float
+  metadata   Json?    @default("{}")
+  
+  @@map("system_metrics")
+}
+
+model MemoryEntry {
+  id        String   @id @default(cuid())
+  key       String   @unique
+  value     Json
+  type      String
+  namespace String   @default("default")
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+  
+  @@map("memory_entries")
+}
+
+model Report {
+  id        String   @id @default(cuid())
+  type      String   // ReportType: system_health, performance, agent_activity, custom
+  title     String
+  content   String
+  metadata  Json?    @default("{}")
+  createdAt DateTime @default(now()) @map("created_at")
+  
+  @@map("reports")
+}
+
+model Alert {
+  id           String   @id @default(cuid())
+  type         String   // AlertType: system_error, agent_failure, performance_degradation, resource_exhaustion
+  severity     String   // AlertSeverity: info, warning, error, critical
+  title        String
+  description  String
+  acknowledged Boolean  @default(false)
+  timestamp    DateTime @default(now())
+  
+  @@map("alerts")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String
+  name      String?
+  role      String   @default("viewer") // admin, operator, viewer
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+  
+  @@map("users")
+}
+
+model Session {
+  id        String   @id @default(cuid())
+  userId    String   @map("user_id")
+  token     String   @unique
+  expiresAt DateTime @map("expires_at")
+  createdAt DateTime @default(now()) @map("created_at")
+  
+  @@map("sessions")
+}
